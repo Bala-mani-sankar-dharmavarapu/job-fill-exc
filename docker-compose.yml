@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:s
+      - ollama-data:/root/.ollama
+    tty: true
+    stdin_open: true
+
+volumes:
+  ollama-data:
