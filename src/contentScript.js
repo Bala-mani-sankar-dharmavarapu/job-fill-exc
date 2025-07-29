@@ -76,7 +76,6 @@ async function fillFormFieldsSmart() {
     const val = formData[f.id];
     return val === undefined || val === "";
   });
-
   const mappings = await requestLLMMappings(unfilledFields, formData);
 
   // Fill the form fields
@@ -275,6 +274,11 @@ function showFloatingFormEditor() {
           <div class="form-group"><label for="phoneNumber" class="required">Phone Number</label><input id="phoneNumber" name="phoneNumber" type="text" required></div>
           <div class="form-group"><label for="email" class="required">Email Address</label><input id="email" name="email" type="email" required></div>
           <div class="form-group"><label for="address">Home Address</label><input id="address" name="address" type="text"></div>
+          <div class="form-group"><label for="state">State</label><input id="state" name="state" type="text"></div>
+          <div class="form-group"><label for="postalCode">Postal Code</label><input id="postalCode" name="postalCode" type="text"></div>
+          <div class="form-group"><label for="country">Country</label><input id="country" name="country" type="text"></div>
+          <div class="form-group"><label for="phoneDeviceType">Phone Device Type</label><select id="phoneDeviceType" name="phoneDeviceType"><option>Mobile</option><option>Landline</option><option>Other</option></select></div>
+          <div class="form-group"><label for="password">Password</label><input id="password" name="password" type="password"></div>
           <div class="form-group"><label for="contactMethod">Preferred Contact Method</label><select id="contactMethod" name="contactMethod"><option>Email</option><option>Phone</option></select></div>
           <div class="form-group"><label for="workEligibility">Eligibility to Work in the Country</label><input id="workEligibility" name="workEligibility" type="text"></div>
           <div class="form-group"><label for="jobTitle">Desired Job Title / Position Applied For</label><input id="jobTitle" name="jobTitle" type="text"></div>
@@ -286,6 +290,7 @@ function showFloatingFormEditor() {
           <div class="form-group"><label for="citizenship">Citizenship or Legal Right to Work</label><input id="citizenship" name="citizenship" type="text"></div>
           <div class="form-group"><label for="relocate">Willingness to Relocate</label><select id="relocate" name="relocate"><option>Yes</option><option>No</option></select></div>
           <div class="form-group"><label for="travel">Willingness to Travel</label><select id="travel" name="travel"><option>Yes</option><option>No</option></select></div>
+          <div class="form-group"><label for="voluntaryDisclosures">Voluntary Disclosures</label><textarea id="voluntaryDisclosures" name="voluntaryDisclosures"></textarea></div>
         </div>
       </details>
       <details class="accordion-section">
@@ -299,6 +304,7 @@ function showFloatingFormEditor() {
           <div class="form-group" style="grid-column: 1 / -1;"><label for="reasonLeaving">Reason for Leaving</label><textarea id="reasonLeaving" name="reasonLeaving"></textarea></div>
           <div class="form-group"><label for="supervisor">Supervisor's Name and Contact Information</label><input id="supervisor" name="supervisor" type="text"></div>
           <div class="form-group"><label for="contactPrevEmployer">Permission to Contact Previous Employer</label><select id="contactPrevEmployer" name="contactPrevEmployer"><option>Yes</option><option>No</option></select></div>
+          <div class="form-group"><label for="salaryRange">Salary Range</label><input id="salaryRange" name="salaryRange" type="text" placeholder="e.g. 50000-70000"></div>
         </div>
       </details>
       <details class="accordion-section">
@@ -318,6 +324,7 @@ function showFloatingFormEditor() {
           <div class="form-group"><label>Languages Spoken/Written</label><ul class="multi-entry-list" id="languages-list"></ul><button type="button" class="add-entry-btn" id="add-language">Add Language</button></div>
           <div class="form-group"><label>Certifications or Licenses</label><ul class="multi-entry-list" id="certifications-list"></ul><button type="button" class="add-entry-btn" id="add-certification">Add Certification</button></div>
           <div class="form-group"><label>Relevant Training or Workshops</label><ul class="multi-entry-list" id="training-list"></ul><button type="button" class="add-entry-btn" id="add-training">Add Training</button></div>
+          <div class="form-group"><label for="applicationQuestion">Application Question</label><textarea id="applicationQuestion" name="applicationQuestion"></textarea></div>
         </div>
       </details>
       <details class="accordion-section">
