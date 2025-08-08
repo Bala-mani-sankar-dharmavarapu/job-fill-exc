@@ -60,6 +60,62 @@ function App() {
     }
   };
 
+  // Read job description and create custom resume
+  const handleCreateCustomResume = async () => {
+    try {
+      setStatus("Reading job description...");
+
+      const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+
+      const response = await chrome.tabs.sendMessage(tab.id, {
+        action: "createCustomResume",
+      });
+
+      if (response && response.success) {
+        setStatus("Resume created!");
+        setTimeout(() => setStatus("Ready"), 2000);
+      } else {
+        setStatus("No job description found");
+        setTimeout(() => setStatus("Ready"), 2000);
+      }
+    } catch (error) {
+      console.error("Error creating resume:", error);
+      setStatus("Error occurred");
+      setTimeout(() => setStatus("Ready"), 2000);
+    }
+  };
+
+  // Update existing resume with job description
+  const handleUpdateResume = async () => {
+    try {
+      setStatus("Opening resume updater...");
+
+      const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+
+      const response = await chrome.tabs.sendMessage(tab.id, {
+        action: "updateResume",
+      });
+
+      if (response && response.success) {
+        setStatus("Resume updater opened!");
+        setTimeout(() => setStatus("Ready"), 2000);
+      } else {
+        setStatus("Error opening updater");
+        setTimeout(() => setStatus("Ready"), 2000);
+      }
+    } catch (error) {
+      console.error("Error opening resume updater:", error);
+      setStatus("Error occurred");
+      setTimeout(() => setStatus("Ready"), 2000);
+    }
+  };
+
   return (
     <div className="app">
       <div className="header">
@@ -74,6 +130,15 @@ function App() {
           </button>
           <button className="btn btn-secondary" onClick={handleOpenFormEditor}>
             Form Data
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={handleCreateCustomResume}
+          >
+            Custom Resume
+          </button>
+          <button className="btn btn-secondary" onClick={handleUpdateResume}>
+            Update Resume
           </button>
         </div>
 

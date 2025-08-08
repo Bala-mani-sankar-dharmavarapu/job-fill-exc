@@ -1,6 +1,6 @@
 .app {
   width: 300px;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -38,19 +38,21 @@
 
 .button-group {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .btn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 100px;
+  width: 100%;
 }
 
 .btn-primary {
